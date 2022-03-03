@@ -1,0 +1,16 @@
+.button-cont {
+    display: flex;
+    justify-content: center;
+  .button-prm {
+    background-color: rgb(211, 62, 62);
+    padding: 1vh;
+    font-size: medium;
+    min-width: 10vw;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+  }
+  .button-prm:active{
+      background-color: rgb(231, 81, 81);
+  }
+}
