@@ -11,7 +11,7 @@ function Home() {
 
   useEffect(() => {
     setData(Offers);
-    Categories.sort((a, b) => a.order > b.order);
+    Categories.sort((a, b) => a.order - b.order);
     let orderCate = Categories.filter((val) => val.order > 0);
     setCategory(orderCate);
   }, []);

@@ -1,9 +1,17 @@
 import React from "react";
+import { connect } from "react-redux";
 import Button from "../../Component/Button/button.component";
 import Input from "../../Component/Input/input.component";
+import setUser from "../../Redux/UserReducer/user-action";
 import "./login.styles.scss";
 
-function Login() {
+function Login(props) {
+  const { setUser } = props;
+
+  const UserloggedIn = () => {
+    setUser(true);
+  };
+
   return (
     <div className="login-container">
       <div className="login-text">
@@ -20,10 +28,18 @@ function Login() {
           placeholder="Password"
           text="Password"
         />
-        <Button text="Login" />
+        <Button text="Login" onClick={UserloggedIn} />
       </div>
     </div>
   );
 }
 
-export default Login;
+// const mapStateToProps = (state) => ({
+//   isUserLoggedIn: state.user.isUserLoggedIn,
+// });
+
+const mapDispatchToProps = (dispatch) => ({
+  setUser: (user) => dispatch(setUser(user)),
+});
+
+export default connect(null, mapDispatchToProps)(Login);
