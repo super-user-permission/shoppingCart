@@ -1,10 +1,10 @@
 import React from "react";
 import "./button.styles.scss";
 
-function Button({ text, onClick }) {
+function Button({ text, onClick = null }) {
   return (
     <div className="button-cont">
-      <button className="button-prm" onClick={() => onClick()}>
+      <button className="button-prm" onClick={() => onClick && onClick()}>
         {text}
       </button>
     </div>

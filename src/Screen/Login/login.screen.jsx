@@ -8,7 +8,9 @@ import "./login.styles.scss";
 function Login(props) {
   const { setUser } = props;
 
-  const UserloggedIn = () => {
+  const UserloggedIn = (e) => {
+    e.preventDefault();
+    console.log("Called", e);
     setUser(true);
   };
 
@@ -21,14 +23,24 @@ function Login(props) {
         </div>
       </div>
       <div className="input-box">
-        <Input id="email" type="email" placeholder="Email" text="Email" />
-        <Input
-          id="password"
-          type="password"
-          placeholder="Password"
-          text="Password"
-        />
-        <Button text="Login" onClick={UserloggedIn} />
+        <form onSubmit={(e) => UserloggedIn(e)}>
+          <Input
+            id="email"
+            type="email"
+            placeholder="Email"
+            text="Email"
+            required={true}
+          />
+          <Input
+            id="password"
+            type="password"
+            placeholder="Password"
+            text="Password"
+            required={true}
+            minlength={6}
+          />
+          <Button text="Login" type="submit" />
+        </form>
       </div>
     </div>
   );
