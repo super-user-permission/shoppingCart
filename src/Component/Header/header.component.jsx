@@ -1,12 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { showCart } from "../../Redux/CartReducer/cart-action";
 import setUser from "../../Redux/UserReducer/user-action";
-// import cartImg from "../../static/images/cart.svg";
 import "./header.styles.scss";
 
 function Header(props) {
-  const { isUserLoggedIn, setUserStatus } = props;
+  const { isUserLoggedIn, setUserStatus, setCartStatus, cartItem } = props;
 
   const userLogOut = (event) => {
     console.log(event);
@@ -15,6 +15,12 @@ function Header(props) {
       setUserStatus(false);
     }
   };
+
+  const showCartProducts = () => {
+    setCartStatus();
+  };
+
+  console.log(props);
 
   return (
     <nav>
@@ -37,13 +43,13 @@ function Header(props) {
             <Link to="/register">Register</Link>
           </div>
           <div className="cart-nav">
-            <div className="cart-icon">
+            <div className="cart-icon" onClick={showCartProducts}>
               <img
                 className="cart-img"
                 src={`${process.env.PUBLIC_URL}/static/images/cart.svg`}
                 alt="Cart Image"
               />
-              <span> 0 items</span>
+              <span> {cartItem.cart_items.length} items</span>
             </div>
           </div>
         </div>
@@ -54,10 +60,12 @@ function Header(props) {
 
 const mapStateToProps = (state) => ({
   isUserLoggedIn: state.user.isUserLoggedIn,
+  cartItem: state.cart,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   setUserStatus: (user) => dispatch(setUser(user)),
+  setCartStatus: (status) => dispatch(showCart(status)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

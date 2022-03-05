@@ -2,7 +2,7 @@ import React from "react";
 import "./categorybar.styles.scss";
 import Button from "../Button/button.component";
 
-function CategoryBar({ imageURL, name, id, desc, className }) {
+function CategoryBar({ imageURL, name, id, desc, className, onClick }) {
   return (
     <div className={className} key={id}>
       <div className="categoryImage-container">
@@ -18,7 +18,7 @@ function CategoryBar({ imageURL, name, id, desc, className }) {
           <h2 className="category-title">{name}</h2>
           <p>{desc}</p>
           <div className="category-button">
-            <Button text={`Explore ${name}`} />
+            <Button text={`Explore ${name}`} onClick={onClick} />
           </div>
         </div>
       </div>

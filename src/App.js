@@ -6,6 +6,7 @@ import Product from "./Screen/Product/product.screen";
 import Login from "./Screen/Login/login.screen";
 import Register from "./Screen/Register/register.screen";
 import Header from "./Component/Header/header.component";
+import Cart from "./Screen/Cart/cart.component";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/login" exact component={Login} />
           <Route path="/register" exact component={Register} />
         </Switch>
+        <Cart />
       </div>
     </Router>
   );

@@ -1,0 +1,14 @@
+.navbar-categories {
+  width: 20vw;
+  height: 100vh;
+  background: rgb(199, 199, 199);
+
+  .category-bar {
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    padding: 2vw;
+    margin-left: 1vw;
+    border-bottom: 1px solid gray;
+  }
+}

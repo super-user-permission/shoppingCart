@@ -1,0 +1,40 @@
+.productCart-container {
+  position: absolute;
+  top: 10vh;
+  right: 0;
+  background-color: rgba($color: rgb(230, 230, 230), $alpha: 1);
+  width: 50vw;
+  height: 80vh;
+  overflow: scroll;
+
+  .header-container {
+    background-color: rgb(36, 35, 44);
+    padding: 1vh;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 2vh;
+    padding-right: 3vh;
+  }
+
+  .close-btn {
+    font-size: xx-large;
+  }
+
+  .product-tile {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    margin: 1vh;
+    .item-img {
+      width: 10vw;
+      padding: 1vh;
+    }
+  }
+
+  .temp {
+    width: 100vw;
+    height: 20vh;
+  }
+}

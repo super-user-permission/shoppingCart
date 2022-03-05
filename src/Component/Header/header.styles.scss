@@ -57,11 +57,12 @@
         background-color: rgb(221, 219, 219);
         width: auto;
         height: auto;
-        padding: 1vh;
+        padding: 0.5vh;
         justify-content: space-around;
 
         .cart-img {
-          width: 2vw;
+          width: 1.5vw;
+          margin-right: 1vw;
         }
       }
     }

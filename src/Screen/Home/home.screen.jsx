@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
+import { connect } from "react-redux";
 import CategoryBar from "../../Component/CategoryBar/categorybar-component";
 import Carousal from "../../Component/OfferCarousal/offercarousal.component";
+import setCategoryId from "../../Redux/CategoryReducer/cate-action";
 import Offers from "../../server/banners/index.get.json";
 import Categories from "../../server/categories/index.get.json";
 import "./home.styles.scss";
 
-function Home() {
+function Home(props) {
   const [data, setData] = useState([]);
   const [category, setCategory] = useState([]);
 
@@ -15,6 +17,14 @@ function Home() {
     let orderCate = Categories.filter((val) => val.order > 0);
     setCategory(orderCate);
   }, []);
+
+  const onClickCategory = (e) => {
+    console.log("called", e);
+    props.setCategoryId(e);
+    props.history.push("/product");
+  };
+
+  console.log(category);
 
   return (
     <div className="home-container">
@@ -26,10 +36,19 @@ function Home() {
           name={cate.name}
           id={cate.id}
           desc={cate.description}
+          onClick={() => onClickCategory(cate.id)}
         />
       ))}
     </div>
   );
 }
 
-export default Home;
+const mapStateToProps = (state) => ({
+  categoryId: state.cateId,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  setCategoryId: (id) => dispatch(setCategoryId(id)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
