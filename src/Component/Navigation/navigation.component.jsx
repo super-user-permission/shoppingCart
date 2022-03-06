@@ -11,8 +11,6 @@ function NavigationBar({ category }) {
     setCategories(orderCate);
   }, []);
 
-  console.log(categories);
-
   return (
     <div className="navbar-categories">
       {categories.map((cate) => (

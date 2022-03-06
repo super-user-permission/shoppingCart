@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
+import { useParams } from "react-router-dom";
 import NavigationBar from "../../Component/Navigation/navigation.component";
 import ProductCard from "../../Component/ProductCard/productcard.component";
 import { addCart } from "../../Redux/CartReducer/cart-action";
@@ -10,6 +11,8 @@ import "./product.styles.scss";
 function Product(props) {
   const [product, setProduct] = useState([]);
   const [filterProduct, setFilteredProduct] = useState([]);
+
+  console.log(props);
 
   const setCategory = (id) => {
     props.setCategoryId(id);
@@ -37,7 +40,7 @@ function Product(props) {
 
   return (
     <div className="product-container">
-      <NavigationBar category={setCategory} />
+      <NavigationBar category={setCategory} match={props.match} />
       <div className="product-card">
         {filterProduct.map((pro) => (
           <ProductCard

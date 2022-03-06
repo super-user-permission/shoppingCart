@@ -19,12 +19,9 @@ function Home(props) {
   }, []);
 
   const onClickCategory = (e) => {
-    console.log("called", e);
     props.setCategoryId(e);
     props.history.push("/product");
   };
-
-  console.log(category);
 
   return (
     <div className="home-container">

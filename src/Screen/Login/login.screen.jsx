@@ -10,7 +10,6 @@ function Login(props) {
 
   const UserloggedIn = (e) => {
     e.preventDefault();
-    console.log("Called", e);
     setUser(true);
   };
 

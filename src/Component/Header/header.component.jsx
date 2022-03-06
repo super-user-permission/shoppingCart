@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { showCart } from "../../Redux/CartReducer/cart-action";
@@ -7,9 +7,9 @@ import "./header.styles.scss";
 
 function Header(props) {
   const { isUserLoggedIn, setUserStatus, setCartStatus, cartItem } = props;
+  // const [totalItems, setTotalItems] = useState(0);
 
   const userLogOut = (event) => {
-    console.log(event);
     if (isUserLoggedIn) {
       event.preventDefault();
       setUserStatus(false);
@@ -20,7 +20,10 @@ function Header(props) {
     setCartStatus();
   };
 
-  console.log(props);
+  let totalItems = cartItem.cart_items.reduce(
+    (acc, items) => (acc = acc + items.quantity),
+    0
+  );
 
   return (
     <nav>
@@ -49,7 +52,7 @@ function Header(props) {
                 src={`${process.env.PUBLIC_URL}/static/images/cart.svg`}
                 alt="Cart Image"
               />
-              <span> {cartItem.cart_items.length} items</span>
+              <span> {totalItems} items</span>
             </div>
           </div>
         </div>

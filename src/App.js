@@ -11,11 +11,11 @@ import Cart from "./Screen/Cart/cart.component";
 function App() {
   return (
     <Router>
-      <div>
+      <div className="app-container">
         <Header />
         <Switch>
           <Route path="/" exact component={Home} />
-          <Route path="/product" exact component={Product} />
+          <Route path="/product" component={Product} />
           <Route path="/login" exact component={Login} />
           <Route path="/register" exact component={Register} />
         </Switch>

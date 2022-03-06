@@ -6,12 +6,9 @@ import "./register.styles.scss";
 function Register(props) {
   const onUserCreate = (e) => {
     e.preventDefault();
-    console.log(e.target[3].value, e.target[4].value);
     if (e.target[3].value !== e.target[4].value) {
-      console.log("Called");
       return;
     } else {
-      console.log(props);
       props.history.push("/login");
     }
   };
