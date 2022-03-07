@@ -4,12 +4,14 @@ import Input from "../../Component/Input/input.component";
 import "./register.styles.scss";
 
 function Register(props) {
+  const { history } = props;
+
   const onUserCreate = (e) => {
     e.preventDefault();
     if (e.target[3].value !== e.target[4].value) {
       return;
     } else {
-      props.history.push("/login");
+      history.push("/login");
     }
   };
   return (

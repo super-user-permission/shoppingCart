@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
-import { useParams } from "react-router-dom";
 import NavigationBar from "../../Component/Navigation/navigation.component";
 import ProductCard from "../../Component/ProductCard/productcard.component";
 import { addCart } from "../../Redux/CartReducer/cart-action";
@@ -12,26 +11,26 @@ function Product(props) {
   const [product, setProduct] = useState([]);
   const [filterProduct, setFilteredProduct] = useState([]);
 
-  console.log(props);
+  const { setCategoryId, addItemsToCart, categoryId, match } = props;
 
   const setCategory = (id) => {
-    props.setCategoryId(id);
-    let filteredList = product.filter((ele) => ele.category == id);
+    setCategoryId(id);
+    let filteredList = product.filter((ele) => ele.category === id);
     setFilteredProduct(filteredList);
   };
 
-  const addItemsToCart = (product) => {
+  const addItemToCart = (product) => {
     product.quantity = 1;
-    props.addItemsToCart(product);
+    addItemsToCart(product);
   };
 
   useEffect(() => {
-    if (props.categoryId == null) {
+    if (categoryId == null) {
       setProduct(listProduct);
       setFilteredProduct(listProduct);
     } else {
       let filteredList = listProduct.filter(
-        (ele) => ele.category == props.categoryId
+        (ele) => ele.category === categoryId
       );
       setProduct(listProduct);
       setFilteredProduct(filteredList);
@@ -40,7 +39,7 @@ function Product(props) {
 
   return (
     <div className="product-container">
-      <NavigationBar category={setCategory} match={props.match} />
+      <NavigationBar category={setCategory} match={match} />
       <div className="product-card">
         {filterProduct.map((pro) => (
           <ProductCard
@@ -48,7 +47,7 @@ function Product(props) {
             imgURL={pro.imageURL}
             price={pro.price}
             desc={pro.description}
-            additem={() => addItemsToCart(pro)}
+            additem={() => addItemToCart(pro)}
           />
         ))}
       </div>

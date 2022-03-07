@@ -6,45 +6,48 @@ import {
   showCart,
 } from "../../Redux/CartReducer/cart-action";
 import "./cart.styles.scss";
-import Button from "../../Component/Button/button.component";
 
 function Cart(props) {
+  const { setCartStatus, addItemsToCart, reduceItemsToCart, cartStatus } =
+    props;
+
   const closeCart = () => {
-    props.setCartStatus();
+    setCartStatus();
   };
 
   const addItems = (item) => {
-    props.addItemsToCart(item);
+    addItemsToCart(item);
   };
 
   const reduceItems = (item) => {
-    props.reduceItemsToCart(item);
+    reduceItemsToCart(item);
   };
 
-  console.log(props.cartStatus.cart_items.length);
+  console.log(cartStatus.cart_items.length);
   let total = 0;
-  props.cartStatus.cart_items.length &&
-    props.cartStatus.cart_items.map((item) => {
+  cartStatus.cart_items.length &&
+    cartStatus.cart_items.map((item) => {
       total = total + item.quantity * item.price;
     });
 
   console.log(total);
 
   return (
-    props.cartStatus.show_cart && (
+    cartStatus.show_cart && (
       <div className="productCart-container">
         <header className="header-container">
-          <h2>My cart {`(${props.cartStatus.cart_items.length} items)`}</h2>
+          <h2>My cart {`(${cartStatus.cart_items.length} items)`}</h2>
           <div className="close-btn" onClick={() => closeCart()}>
             &#10005;
           </div>
         </header>
-        {props.cartStatus.cart_items.length > 0 ? (
-          props.cartStatus.cart_items.map((product) => (
+        {cartStatus.cart_items.length > 0 ? (
+          cartStatus.cart_items.map((product) => (
             <div className="product-tile">
               <img
                 className="item-img"
                 src={`${process.env.PUBLIC_URL}${product.imageURL}`}
+                alt={`${product.description}`}
               />
               <div>
                 <h3>{product.name}</h3>
@@ -84,24 +87,27 @@ function Cart(props) {
           </div>
         )}
 
-        {props.cartStatus.cart_items.length > 0 ? (
+        {cartStatus.cart_items.length > 0 ? (
           <div className="footer-img">
             <img
               src={`${process.env.PUBLIC_URL}/static/images/lowest-price.png`}
+              alt="Lowest price"
             />
             <span>You won't find it cheaper anywhere</span>
           </div>
         ) : null}
 
-        <div className="totalAmount">
-          <div>
-            <div>Promo code can be applied on payment page</div>
-            <div className="button-checkout">
-              <div>Proceed to Checkout</div>
-              <div>Rs. {total} &nbsp; &nbsp; &#10095;</div>
+        {cartStatus.cart_items.length > 0 ? (
+          <div className="totalAmount">
+            <div>
+              <div>Promo code can be applied on payment page</div>
+              <div className="button-checkout">
+                <div>Proceed to Checkout</div>
+                <div>Rs. {total} &nbsp; &nbsp; &#10095;</div>
+              </div>
             </div>
           </div>
-        </div>
+        ) : null}
       </div>
     )
   );

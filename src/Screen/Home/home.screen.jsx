@@ -11,6 +11,8 @@ function Home(props) {
   const [data, setData] = useState([]);
   const [category, setCategory] = useState([]);
 
+  const { setCategoryId, history } = props;
+
   useEffect(() => {
     setData(Offers);
     Categories.sort((a, b) => a.order - b.order);
@@ -19,8 +21,8 @@ function Home(props) {
   }, []);
 
   const onClickCategory = (e) => {
-    props.setCategoryId(e);
-    props.history.push("/product");
+    setCategoryId(e);
+    history.push("/product");
   };
 
   return (

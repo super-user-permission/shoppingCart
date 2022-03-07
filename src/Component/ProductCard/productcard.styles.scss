@@ -3,6 +3,9 @@
   width: 15vw;
   padding: 2vw;
   box-shadow: -2px 4px 10px -6px rgb(209, 202, 202);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   .thumbnail-container {
     display: flex;

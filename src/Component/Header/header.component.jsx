@@ -7,7 +7,6 @@ import "./header.styles.scss";
 
 function Header(props) {
   const { isUserLoggedIn, setUserStatus, setCartStatus, cartItem } = props;
-  // const [totalItems, setTotalItems] = useState(0);
 
   const userLogOut = (event) => {
     if (isUserLoggedIn) {

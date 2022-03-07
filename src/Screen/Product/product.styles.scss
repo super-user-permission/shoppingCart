@@ -4,6 +4,7 @@
   .product-card {
     display: flex;
     width: 80vw;
+    height: fit-content;
     flex-wrap: wrap;
     justify-content: space-around;
   }
