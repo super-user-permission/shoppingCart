@@ -1,16 +1,15 @@
 import React from "react";
-import { connect } from "react-redux";
 import Button from "../../Component/Button/button.component";
 import Input from "../../Component/Input/input.component";
-import setUser from "../../Redux/UserReducer/user-action";
 import "./login.styles.scss";
 
 function Login(props) {
-  const { setUser } = props;
+  const { setUser, history } = props;
 
   const UserloggedIn = (e) => {
     e.preventDefault();
     setUser(true);
+    history.push("/");
   };
 
   return (
@@ -45,12 +44,4 @@ function Login(props) {
   );
 }
 
-// const mapStateToProps = (state) => ({
-//   isUserLoggedIn: state.user.isUserLoggedIn,
-// });
-
-const mapDispatchToProps = (dispatch) => ({
-  setUser: (user) => dispatch(setUser(user)),
-});
-
-export default connect(null, mapDispatchToProps)(Login);
+export default Login;

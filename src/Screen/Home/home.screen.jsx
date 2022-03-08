@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import CategoryBar from "../../Component/CategoryBar/categorybar-component";
 import Carousal from "../../Component/OfferCarousal/offercarousal.component";
-import setCategoryId from "../../Redux/CategoryReducer/cate-action";
 import Offers from "../../server/banners/index.get.json";
 import Categories from "../../server/categories/index.get.json";
 import "./home.styles.scss";
@@ -42,12 +41,4 @@ function Home(props) {
   );
 }
 
-const mapStateToProps = (state) => ({
-  categoryId: state.cateId,
-});
-
-const mapDispatchToProps = (dispatch) => ({
-  setCategoryId: (id) => dispatch(setCategoryId(id)),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default Home;

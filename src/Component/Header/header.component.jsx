@@ -29,6 +29,7 @@ function Header(props) {
       <div className="navbar-container">
         <div className="logo-container">
           <img
+            className="img-logo"
             src={`${process.env.PUBLIC_URL}/static/images/logo.png`}
             alt="Logo"
           />

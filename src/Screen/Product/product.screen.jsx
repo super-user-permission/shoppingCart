@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { connect } from "react-redux";
 import NavigationBar from "../../Component/Navigation/navigation.component";
 import ProductCard from "../../Component/ProductCard/productcard.component";
-import { addCart } from "../../Redux/CartReducer/cart-action";
-import setCategoryId from "../../Redux/CategoryReducer/cate-action";
 import listProduct from "../../server/products/index.get.json";
 import "./product.styles.scss";
 
@@ -55,13 +52,4 @@ function Product(props) {
   );
 }
 
-const mapStateToProps = (state) => ({
-  categoryId: state.cateId.categoryId,
-});
-
-const mapDispatchToProps = (dispatch) => ({
-  setCategoryId: (id) => dispatch(setCategoryId(id)),
-  addItemsToCart: (item) => dispatch(addCart(item)),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Product);
+export default Product;

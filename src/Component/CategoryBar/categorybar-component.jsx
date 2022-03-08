@@ -14,12 +14,10 @@ function CategoryBar({ imageURL, name, id, desc, className, onClick }) {
         />
       </div>
       <div className="categoryText-container">
-        <div>
-          <h2 className="category-title">{name}</h2>
-          <p>{desc}</p>
-          <div className="category-button">
-            <Button text={`Explore ${name}`} onClick={onClick} />
-          </div>
+        <h2 className="category-title">{name}</h2>
+        <p>{desc}</p>
+        <div className="category-button">
+          <Button text={`Explore ${name}`} onClick={onClick} />
         </div>
       </div>
     </div>

@@ -29,13 +29,10 @@ const setCartStatus = (state = INITIAL_STATE, action) => {
     case cartActionTypes.REMOVE_CART:
       let itemExists = state.cart_items.find((p) => p.id == action.payload.id);
       if (!!itemExists) {
-        console.log(action.payload);
         if (action.payload.quantity <= 1) {
-          console.log("Substract 1");
           let remItems = state.cart_items.filter(
             (item) => item.id !== action.payload.id
           );
-          console.log(remItems);
           return { ...state, cart_items: [...remItems] };
         } else {
           state.cart_items = state.cart_items.map((id) =>

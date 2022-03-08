@@ -14,13 +14,18 @@
     width: auto;
     box-sizing: border-box;
     align-items: center;
+    flex-shrink: 1;
+
+    .img-logo{
+      width: 12vw;
+    }
   }
 
   .nav-panel {
     display: flex;
     align-items: flex-end;
     padding-bottom: 2vh;
-    width: 15vw;
+    width: 25vw;
     box-sizing: border-box;
     justify-content: space-around;
   }
@@ -29,7 +34,8 @@
     display: flex;
     flex-wrap: wrap;
     box-sizing: border-box;
-    width: 70vw;
+    width: 60vw;
+    flex-shrink: 3;
     // background-color: red;
     // justify-content: flex-end;
 
