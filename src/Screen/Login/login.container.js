@@ -1,10 +1,10 @@
-import setUser from "../../Redux/UserReducer/user-action";
+import { checkUserExists } from "../../Redux/UserReducer/user-action";
 import { compose } from "redux";
 import { connect } from "react-redux";
 import Login from "./login.screen";
 
 const mapDispatchToProps = (dispatch) => ({
-  setUser: (user) => dispatch(setUser(user)),
+  checkUser: (user) => dispatch(checkUserExists(user)),
 });
 
 const LoginContainer = compose(connect(null, mapDispatchToProps))(Login);

@@ -35,3 +35,19 @@
     }
   }
 }
+
+@media (max-width: 425px) {
+  .category-container {
+    padding: 2vh;
+    .categoryImage-container {
+      .category-image {
+        width: 30vw;
+        height: 10vh;
+      }
+    }
+
+    .categoryText-container {
+      font-size: 1vh;
+    }
+  }
+}

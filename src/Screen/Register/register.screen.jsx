@@ -7,13 +7,30 @@ function Register(props) {
   const { history } = props;
 
   const onUserCreate = (e) => {
+    var regexPassword =
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])[^-\s](?=.{8,})/;
+    var result = regexPassword.test(e.target[3].value);
     e.preventDefault();
     if (e.target[3].value !== e.target[4].value) {
-      return;
+      alert("Password and confirm password input should be same");
+    } else if (!result) {
+      alert(
+        "Password should be 8 letter long with minimum 8 characters, a number and alphabet with no spaces"
+      );
     } else {
-      history.push("/login");
+      console.log(e.target[0].value);
+      const data = {
+        firstName: e.target[0].value,
+        lastname: e.target[1].value,
+        email: e.target[2].value,
+        password: e.target[3].value,
+      };
+      console.log(data);
+      props.addUser(data);
+      history.push("/");
     }
   };
+
   return (
     <div className="register-container">
       <div className="register-text">

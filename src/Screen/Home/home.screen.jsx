@@ -5,6 +5,7 @@ import Carousal from "../../Component/OfferCarousal/offercarousal.component";
 import Offers from "../../server/banners/index.get.json";
 import Categories from "../../server/categories/index.get.json";
 import "./home.styles.scss";
+import axios from "axios";
 
 function Home(props) {
   const [data, setData] = useState([]);
@@ -13,6 +14,16 @@ function Home(props) {
   const { setCategoryId, history } = props;
 
   useEffect(() => {
+    // axios({
+    //   method: "post",
+    //   url: "/login",
+    //   data: {
+    //     user: "Finn",
+    //     password: "Williams",
+    //   },
+    // })
+    //   .then((res) => console.log(res))
+      // .catch((err) => console.log(err));
     setData(Offers);
     Categories.sort((a, b) => a.order - b.order);
     let orderCate = Categories.filter((val) => val.order > 0);

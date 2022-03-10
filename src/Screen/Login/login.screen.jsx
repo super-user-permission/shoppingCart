@@ -4,11 +4,11 @@ import Input from "../../Component/Input/input.component";
 import "./login.styles.scss";
 
 function Login(props) {
-  const { setUser, history } = props;
+  const { checkUser, history } = props;
 
   const UserloggedIn = (e) => {
     e.preventDefault();
-    setUser(true);
+    checkUser(true);
     history.push("/");
   };
 

@@ -1,8 +1,16 @@
 import UserActionTypes from "./user-actiontypes";
 
-const setUser = (value) => ({
+export const setUser = (value) => ({
   type: UserActionTypes.SET_USER,
   payload: value,
 });
 
-export default setUser;
+export const registerUserToServer = (value) => ({
+  type: UserActionTypes.REGISTER_USER,
+  data: value,
+});
+
+export const checkUserExists = (value) => ({
+  type: UserActionTypes.CHECK_USER,
+  payload: value,
+});

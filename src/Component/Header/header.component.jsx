@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { showCart } from "../../Redux/CartReducer/cart-action";
-import setUser from "../../Redux/UserReducer/user-action";
+import { setUser } from "../../Redux/UserReducer/user-action";
 import "./header.styles.scss";
 
 function Header(props) {

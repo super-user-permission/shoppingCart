@@ -16,3 +16,15 @@
     position: relative;
   }
 }
+
+@media (max-width: 425px) {
+  .login-container {
+    display: flex;
+    flex-direction: column;
+
+    .login-text {
+      display: flex;
+      width: 80vw;
+    }
+  }
+}

@@ -11,6 +11,7 @@ function Product(props) {
   const { setCategoryId, addItemsToCart, categoryId, match } = props;
 
   const setCategory = (id) => {
+    console.log(id);
     setCategoryId(id);
     let filteredList = product.filter((ele) => ele.category === id);
     setFilteredProduct(filteredList);

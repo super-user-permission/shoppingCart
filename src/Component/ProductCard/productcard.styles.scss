@@ -28,9 +28,35 @@
     justify-content: space-between;
     align-items: center;
 
-    .price-tag::before{
-        content: "MRP Rs.";
-        font-size: small;
+    .price-tag::before {
+      content: "MRP Rs.";
+      font-size: small;
     }
+  }
+}
+
+@media (max-width: 1024px) {
+  .card-container {
+    display: flex;
+    flex-direction: wrap;
+    width: 20vw;
+  }
+}
+
+@media (max-width: 768px) {
+  .card-container {
+    display: flex;
+    flex-direction: wrap;
+    width: 30vw;
+  }
+}
+
+@media (max-width: 425px) {
+  .card-container {
+    display: flex;
+    flex-direction: wrap;
+    width: 70vw;
+    margin-top: 2vh;
+    font-size: small;
   }
 }

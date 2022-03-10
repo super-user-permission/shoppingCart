@@ -43,3 +43,11 @@
     }
   }
 }
+
+@media (max-width: 425px) {
+  .input-container {
+    .input {
+      width: 80vw;
+    }
+  }
+}

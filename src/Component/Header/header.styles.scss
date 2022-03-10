@@ -16,7 +16,7 @@
     align-items: center;
     flex-shrink: 1;
 
-    .img-logo{
+    .img-logo {
       width: 12vw;
     }
   }
@@ -69,6 +69,38 @@
         .cart-img {
           width: 1.5vw;
           margin-right: 1vw;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar-container {
+    .cart-container {
+      .cart-nav {
+        .cart-icon {
+          .cart-img {
+            width: 3vw;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 425px) {
+  .navbar-container {
+    font-size: small;
+    .nav-panel {
+      width: 35vw;
+    }
+    .cart-container {
+      .cart-nav {
+        .cart-icon {
+          .cart-img {
+            width: 5vw;
+          }
         }
       }
     }
