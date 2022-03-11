@@ -1,20 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import NavigationBar from "../../Component/Navigation/navigation.component";
 import ProductCard from "../../Component/ProductCard/productcard.component";
-import listProduct from "../../server/products/index.get.json";
 import "./product.styles.scss";
 
 function Product(props) {
-  const [product, setProduct] = useState([]);
-  const [filterProduct, setFilteredProduct] = useState([]);
-
-  const { setCategoryId, addItemsToCart, categoryId, match } = props;
+  const { setCategoryId, addItemsToCart, match, filteredList, getProductList } =
+    props;
 
   const setCategory = (id) => {
-    console.log(id);
     setCategoryId(id);
-    let filteredList = product.filter((ele) => ele.category === id);
-    setFilteredProduct(filteredList);
   };
 
   const addItemToCart = (product) => {
@@ -23,31 +17,23 @@ function Product(props) {
   };
 
   useEffect(() => {
-    if (categoryId == null) {
-      setProduct(listProduct);
-      setFilteredProduct(listProduct);
-    } else {
-      let filteredList = listProduct.filter(
-        (ele) => ele.category === categoryId
-      );
-      setProduct(listProduct);
-      setFilteredProduct(filteredList);
-    }
+    getProductList();
   }, []);
 
   return (
     <div className="product-container">
       <NavigationBar category={setCategory} match={match} />
       <div className="product-card">
-        {filterProduct.map((pro) => (
-          <ProductCard
-            name={pro.name}
-            imgURL={pro.imageURL}
-            price={pro.price}
-            desc={pro.description}
-            additem={() => addItemToCart(pro)}
-          />
-        ))}
+        {filteredList &&
+          filteredList.map((pro) => (
+            <ProductCard
+              name={pro.name}
+              imgURL={pro.imageURL}
+              price={pro.price}
+              desc={pro.description}
+              additem={() => addItemToCart(pro)}
+            />
+          ))}
       </div>
     </div>
   );

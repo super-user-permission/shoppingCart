@@ -18,14 +18,12 @@ function Register(props) {
         "Password should be 8 letter long with minimum 8 characters, a number and alphabet with no spaces"
       );
     } else {
-      console.log(e.target[0].value);
       const data = {
         firstName: e.target[0].value,
         lastname: e.target[1].value,
         email: e.target[2].value,
         password: e.target[3].value,
       };
-      console.log(data);
       props.addUser(data);
       history.push("/");
     }
@@ -33,52 +31,51 @@ function Register(props) {
 
   return (
     <div className="register-container">
-      <div className="register-text">
+      <section className="register-text">
         <div>
           <h1>Sign Up</h1>
           <span>Get access to your Orders, Wishlists and Recommendations</span>
         </div>
-      </div>
-      <div className="registerBox-input">
-        <form onSubmit={(e) => onUserCreate(e)}>
-          <Input
-            id="firstname"
-            type="text"
-            placeholder="First Name"
-            text="First Name"
-            required={true}
-          />
-          <Input
-            id="lastname"
-            type="text"
-            placeholder="Last Name"
-            text="Last Name"
-            required={true}
-          />
-          <Input
-            id="email"
-            type="email"
-            placeholder="Email"
-            text="Email"
-            required={true}
-          />
-          <Input
-            id="password"
-            type="password"
-            placeholder="Password"
-            text="Password"
-            required={true}
-          />
-          <Input
-            id="confirmpassword"
-            type="password"
-            placeholder="Confirm Password"
-            text="Confirm Password"
-            required={true}
-          />
-          <Button text="Sign Up" type="submit" />
-        </form>
-      </div>
+      </section>
+
+      <form onSubmit={(e) => onUserCreate(e)} className="registerBox-input">
+        <Input
+          id="firstname"
+          type="text"
+          placeholder="First Name"
+          text="First Name"
+          required={true}
+        />
+        <Input
+          id="lastname"
+          type="text"
+          placeholder="Last Name"
+          text="Last Name"
+          required={true}
+        />
+        <Input
+          id="email"
+          type="email"
+          placeholder="Email"
+          text="Email"
+          required={true}
+        />
+        <Input
+          id="password"
+          type="password"
+          placeholder="Password"
+          text="Password"
+          required={true}
+        />
+        <Input
+          id="confirmpassword"
+          type="password"
+          placeholder="Confirm Password"
+          text="Confirm Password"
+          required={true}
+        />
+        <Button text="Sign Up" type="submit" />
+      </form>
     </div>
   );
 }

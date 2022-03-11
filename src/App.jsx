@@ -1,12 +1,12 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.scss";
+import RegisterContainer from "./Screen/Register/register.conatiner";
 import Header from "./Component/Header/header.component";
 import CartContainer from "./Screen/Cart/cart.container";
 import HomeContainer from "./Screen/Home/home.container";
 import LoginContainer from "./Screen/Login/login.container";
 import ProductContainer from "./Screen/Product/product.container";
-import RegisterContainer from "./Screen/Register/register.conatiner";
 
 function App() {
   return (

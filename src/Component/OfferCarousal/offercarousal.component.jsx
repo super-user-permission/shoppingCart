@@ -10,17 +10,18 @@ function Carousal({ offers }) {
       autoPlay={true}
       infiniteLoop={true}
     >
-      {offers.map((offer) => {
-        return (
-          <div key={offer.id}>
-            <img
-              src={`${process.env.PUBLIC_URL}${offer.bannerImageUrl}`}
-              alt={offer.bannerImageAlt}
-              key={offer.id}
-            />
-          </div>
-        );
-      })}
+      {offers &&
+        offers.map((offer) => {
+          return (
+            <div key={offer.id}>
+              <img
+                src={`${process.env.PUBLIC_URL}${offer.bannerImageUrl}`}
+                alt={offer.bannerImageAlt}
+                key={offer.id}
+              />
+            </div>
+          );
+        })}
     </Carousel>
   );
 }

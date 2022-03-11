@@ -3,6 +3,7 @@ import cartActionTypes from "./cart-actiontypes";
 const INITIAL_STATE = {
   show_cart: false,
   cart_items: [],
+  cart_error: "",
 };
 
 const setCartStatus = (state = INITIAL_STATE, action) => {
@@ -50,6 +51,12 @@ const setCartStatus = (state = INITIAL_STATE, action) => {
           cart_items: [...state.cart_items, action.payload],
         };
       }
+
+    case cartActionTypes.ERROR_CART:
+      return {
+        ...state,
+        cart_error: action.payload,
+      };
 
     default:
       return state;

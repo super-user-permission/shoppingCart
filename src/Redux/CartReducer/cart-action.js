@@ -15,4 +15,9 @@ const removeCart = (product) => ({
   payload: product,
 });
 
-export { showCart, addCart, removeCart };
+const buyItems = (product) => ({
+  type: cartActionTypes.BUY_ITEM,
+  payload: product,
+});
+
+export { showCart, addCart, removeCart, buyItems };

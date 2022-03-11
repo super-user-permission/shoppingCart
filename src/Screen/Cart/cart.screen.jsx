@@ -61,7 +61,7 @@ function Cart(props) {
             </div>
             <div className="totalAmount">
               <div>Promo code can be applied on payment page</div>
-              <div className="button-checkout">
+              <div className="button-checkout" onClick={() => closeCart()}>
                 <div>Proceed to Checkout</div>
                 <div>Rs. {total} &nbsp; &nbsp; &#10095;</div>
               </div>

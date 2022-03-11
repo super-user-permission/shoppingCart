@@ -15,12 +15,15 @@ function NavigationBar({ category }) {
     <div className="navbar-categories">
       {categories.map((cate) => (
         <>
-          <div className="category-bar">
-            <a onClick={() => category(cate.id)}>{cate.name}</a>
+          <div className="category-bar" onClick={() => category(cate.id)}>
+            <a>{cate.name}</a>
           </div>
         </>
       ))}
-      <select className="selector-categories" onChange={(event) => category(event.target.value)}>
+      <select
+        className="selector-categories"
+        onChange={(event) => category(event.target.value)}
+      >
         {categories.map((cate) => (
           <option value={cate.id}> {cate.name} </option>
         ))}

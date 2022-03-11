@@ -58,7 +58,3 @@ export function* checkUserExists({ data }) {
 export function* userExists() {
   yield takeEvery(UserActionTypes.CHECK_USER, checkUserExists);
 }
-
-export default function* rootSaga() {
-  yield all([userExists(), registerUser()]);
-}

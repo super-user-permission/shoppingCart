@@ -2,7 +2,7 @@ import { applyMiddleware, createStore } from "redux";
 import rootReducer from "./rootReducer";
 import logger from "redux-logger";
 import createSagaMiddleware from "redux-saga";
-import rootSaga, { registerUser } from "./UserReducer/user-sagas";
+import rootSaga from "./root-saga";
 
 const sagaMiddleware = createSagaMiddleware();
 
