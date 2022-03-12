@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import CategoryBar from "../../Component/CategoryBar/categorybar-component";
 import Carousal from "../../Component/OfferCarousal/offercarousal.component";
 import "./home.styles.scss";

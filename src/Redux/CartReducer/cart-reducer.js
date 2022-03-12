@@ -12,10 +12,12 @@ const setCartStatus = (state = INITIAL_STATE, action) => {
       return { ...state, show_cart: !state.show_cart };
 
     case cartActionTypes.ADD_CART:
-      let idExists = state.cart_items.find((p) => p.id == action.payload.id);
+      let idExists = state.cart_items.find((p) => p.id === action.payload.id);
       if (!!idExists) {
         state.cart_items = state.cart_items.map((id) =>
-          id.id == action.payload.id ? { ...id, quantity: id.quantity + 1 } : id
+          id.id === action.payload.id
+            ? { ...id, quantity: id.quantity + 1 }
+            : id
         );
         return {
           ...state,
@@ -28,7 +30,7 @@ const setCartStatus = (state = INITIAL_STATE, action) => {
       }
 
     case cartActionTypes.REMOVE_CART:
-      let itemExists = state.cart_items.find((p) => p.id == action.payload.id);
+      let itemExists = state.cart_items.find((p) => p.id === action.payload.id);
       if (!!itemExists) {
         if (action.payload.quantity <= 1) {
           let remItems = state.cart_items.filter(
@@ -37,7 +39,7 @@ const setCartStatus = (state = INITIAL_STATE, action) => {
           return { ...state, cart_items: [...remItems] };
         } else {
           state.cart_items = state.cart_items.map((id) =>
-            id.id == action.payload.id
+            id.id === action.payload.id
               ? { ...id, quantity: id.quantity - 1 }
               : id
           );

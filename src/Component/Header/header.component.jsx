@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { showCart } from "../../Redux/CartReducer/cart-action";
@@ -50,7 +50,7 @@ function Header(props) {
               <img
                 className="cart-img"
                 src={`${process.env.PUBLIC_URL}/static/images/cart.svg`}
-                alt="Cart Image"
+                alt="Cart Logo"
               />
               <span> {totalItems} items</span>
             </div>

@@ -13,6 +13,7 @@ function ProductCard({ name, imgURL, desc, price, additem }) {
         <img
           className="product-img"
           src={`${process.env.PUBLIC_URL}${imgURL}`}
+          alt={name}
         />
       </div>
       <div className="card-desc"> {desc} </div>

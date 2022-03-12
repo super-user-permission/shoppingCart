@@ -1,10 +1,10 @@
 import { combineReducers } from "redux";
 import setCartStatus from "./CartReducer/cart-reducer";
 import setCategoryId from "./CategoryReducer/cate-reducer";
-import setUserReducer from "./UserReducer/user-reducer";
+import manageUserAction from "./UserReducer/user-reducer";
 
 const rootReducer = combineReducers({
-  user: setUserReducer,
+  user: manageUserAction,
   cateId: setCategoryId,
   cart: setCartStatus,
 });

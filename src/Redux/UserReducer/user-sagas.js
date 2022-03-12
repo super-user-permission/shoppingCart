@@ -1,4 +1,4 @@
-import { takeEvery, put, all } from "redux-saga/effects";
+import { takeEvery, put } from "redux-saga/effects";
 import UserActionTypes from "./user-actiontypes";
 import axios from "axios";
 
@@ -47,7 +47,7 @@ async function checkForUserAsync(payload) {
 
 export function* checkUserExists({ data }) {
   try {
-    const users = yield checkForUserAsync(data);
+    yield checkForUserAsync(data);
     yield put({ type: UserActionTypes.SET_USER, payload: true });
   } catch (e) {
     yield put({ type: UserActionTypes.USER_ERROR, payload: e.message });

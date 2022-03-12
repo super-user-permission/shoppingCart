@@ -19,7 +19,7 @@ async function buyItemsAsync(product) {
 export function* buyItemsRequest({ payload }) {
   console.log(payload);
   try {
-    const response = yield buyItemsAsync(payload);
+    yield buyItemsAsync(payload);
     yield put({ type: cartActionTypes.ADD_CART, payload: payload });
   } catch (e) {
     yield put({ type: cartActionTypes.ERROR_CART, payload: e.message });

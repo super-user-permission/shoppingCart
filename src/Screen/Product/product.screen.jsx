@@ -27,6 +27,7 @@ function Product(props) {
         {filteredList &&
           filteredList.map((pro) => (
             <ProductCard
+              key={pro.id}
               name={pro.name}
               imgURL={pro.imageURL}
               price={pro.price}

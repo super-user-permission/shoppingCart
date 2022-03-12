@@ -5,7 +5,7 @@ const INITIAL_STATE = {
   error: "",
 };
 
-const setUserReducer = (state = INITIAL_STATE, action) => {
+const manageUserAction = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case UserActionTypes.SET_USER:
       return { ...state, isUserLoggedIn: action.payload };
@@ -21,4 +21,4 @@ const setUserReducer = (state = INITIAL_STATE, action) => {
   }
 };
 
-export default setUserReducer;
+export default manageUserAction;
