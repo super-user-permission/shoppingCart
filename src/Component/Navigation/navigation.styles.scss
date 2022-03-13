@@ -10,6 +10,16 @@
     padding: 2vw;
     margin-left: 1vw;
     border-bottom: 1px solid gray;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .category-bar:target {
+    background-color: ghostwhite;
+  }
+
+  .category-bar:-webkit-any-link {
+    color: black;
   }
 
   .selector-categories {

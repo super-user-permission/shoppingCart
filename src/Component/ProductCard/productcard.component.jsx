@@ -8,7 +8,7 @@ function ProductCard({ name, imgURL, desc, price, additem }) {
   };
   return (
     <div className="card-container">
-      <h3> {name} </h3>
+      <h3>{name}</h3>
       <div className="thumbnail-container">
         <img
           className="product-img"

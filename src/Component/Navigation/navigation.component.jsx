@@ -16,11 +16,14 @@ function NavigationBar(props) {
     <div className="navbar-categories">
       {categories &&
         categories.map((cate) => (
-          <>
-            <div className="category-bar" onClick={() => category(cate.id)}>
-              <a>{cate.name}</a>
-            </div>
-          </>
+          <a
+            className="category-bar"
+            href={`#${cate.id}`}
+            id={`${cate.id}`}
+            onClick={(e) => category(cate.id,e)}
+          >
+            {cate.name}
+          </a>
         ))}
       <select
         className="selector-categories"

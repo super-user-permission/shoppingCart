@@ -7,7 +7,7 @@ function Product(props) {
   const { setCategoryId, addItemsToCart, match, filteredList, getProductList } =
     props;
 
-  const setCategory = (id) => {
+  const setCategory = (id, e) => {
     setCategoryId(id);
   };
 
