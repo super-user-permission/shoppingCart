@@ -35,20 +35,22 @@ function Cart(props) {
             &#10005;
           </div>
         </header>
-        {cart_items.length > 0 ? (
-          cart_items.map((product) => (
-            <ProductTile
-              product={product}
-              reduceItems={reduceItems}
-              addItems={addItems}
-            />
-          ))
-        ) : (
-          <div className="cartEmpty-container">
-            <h2>No Items in your cart</h2>
-            <p>Your favourite items are just a click away</p>
-          </div>
-        )}
+        <div>
+          {cart_items.length > 0 ? (
+            cart_items.map((product) => (
+              <ProductTile
+                product={product}
+                reduceItems={reduceItems}
+                addItems={addItems}
+              />
+            ))
+          ) : (
+            <div className="cartEmpty-container">
+              <h2>No Items in your cart</h2>
+              <p>Your favourite items are just a click away</p>
+            </div>
+          )}
+        </div>
 
         {cart_items.length > 0 ? (
           <>
@@ -67,7 +69,13 @@ function Cart(props) {
               </div>
             </div>
           </>
-        ) : null}
+        ) : (
+          <div className="totalAmount">
+            <div className="button-checkout" onClick={() => closeCart()}>
+              <div>Start Shopping</div>
+            </div>
+          </div>
+        )}
       </div>
     )
   );

@@ -6,6 +6,8 @@
   width: 40vw;
   height: 80vh;
   overflow: scroll;
+  display: grid;
+  grid-template-rows: max-content max-content max-content auto;
 
   .header-container {
     background-color: rgb(36, 35, 44);
@@ -26,7 +28,7 @@
   }
 
   .cartEmpty-container {
-    height: calc(80vh - 7vh);
+    height: calc(70vh - 7vh);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -40,6 +42,7 @@
     background-color: #fff;
     margin: 1vh;
     padding: 1vh;
+    height: fit-content;
   }
 
   .totalAmount {
@@ -48,6 +51,8 @@
     padding: 1vh;
     box-sizing: border-box;
     background-color: #fff;
+    height: fit-content;
+    align-self: flex-end;
 
     .button-checkout {
       width: 100%;

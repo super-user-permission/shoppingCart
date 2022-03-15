@@ -14,8 +14,8 @@
     -webkit-tap-highlight-color: transparent;
   }
 
-  .category-bar:target {
-    background-color: ghostwhite;
+  .activeCategory{
+    background-color: #d3d3d3;
   }
 
   .category-bar:-webkit-any-link {

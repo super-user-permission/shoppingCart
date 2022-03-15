@@ -3,6 +3,7 @@ import "./navigation.styles.scss";
 import { compose } from "redux";
 import { connect } from "react-redux";
 import { getCategories } from "../../Redux/CategoryReducer/cate-action";
+import { Link } from "react-router-dom";
 
 function NavigationBar(props) {
   const { getCategory, categoryList, category } = props;
@@ -16,22 +17,25 @@ function NavigationBar(props) {
     <div className="navbar-categories">
       {categories &&
         categories.map((cate) => (
-          <a
-            className="category-bar"
-            href={`#${cate.id}`}
-            id={`${cate.id}`}
-            onClick={(e) => category(cate.id,e)}
+          <Link
+            className={`category-bar ${
+              cate.id === categoryList.categoryId ? "activeCategory" : null
+            }`}
+            to={`/product`}
+            key={cate.id}
+            onClick={(e) => category(cate.id, e)}
           >
             {cate.name}
-          </a>
+          </Link>
         ))}
       <select
         className="selector-categories"
         onChange={(event) => category(event.target.value)}
+        value={categoryList.categoryId || ""}
       >
         {categories &&
           categories.map((cate) => (
-            <option value={cate.id}> {cate.name} </option>
+            <option key={cate.id} value={cate.id}> {cate.name} </option>
           ))}
       </select>
     </div>

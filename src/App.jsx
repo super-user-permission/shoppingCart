@@ -1,12 +1,15 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.scss";
-import RegisterContainer from "./Screen/Register/register.conatiner";
+import ErrorBoundary from "./Component/ErrorBoundary/errorBoundary.component";
 import Header from "./Component/Header/header.component";
+import Spinner from "./Component/Spinner/spinner.component";
 import CartContainer from "./Screen/Cart/cart.container";
-import HomeContainer from "./Screen/Home/home.container";
-import LoginContainer from "./Screen/Login/login.container";
-import ProductContainer from "./Screen/Product/product.container";
+
+const ProductPage = lazy(() => import("./Screen/Product/product.container"));
+const LoginPage = lazy(() => import("./Screen/Login/login.container"));
+const HomePage = lazy(() => import("./Screen/Home/home.container"));
+const RegisterPage = lazy(() => import("./Screen/Register/register.conatiner"));
 
 function App() {
   return (
@@ -14,10 +17,14 @@ function App() {
       <div className="app-container">
         <Header />
         <Switch>
-          <Route path="/" exact component={HomeContainer} />
-          <Route path="/product" component={ProductContainer} />
-          <Route path="/login" exact component={LoginContainer} />
-          <Route path="/register" exact component={RegisterContainer} />
+          <ErrorBoundary>
+            <Suspense fallback={<Spinner />}>
+              <Route path="/" exact component={HomePage} />
+              <Route path="/product" component={ProductPage} />
+              <Route path="/login" exact component={LoginPage} />
+              <Route path="/register" exact component={RegisterPage} />
+            </Suspense>
+          </ErrorBoundary>
         </Switch>
         <CartContainer />
       </div>
