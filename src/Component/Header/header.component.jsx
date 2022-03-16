@@ -34,7 +34,7 @@ function Header(props) {
             alt="Logo"
           />
         </div>
-        <div className="nav-panel">
+        <div className="nav-panel" aria-label="screen navigation">
           <Link to="/">Home</Link>
           <Link to="/product">Product</Link>
         </div>
@@ -45,8 +45,8 @@ function Header(props) {
             </Link>
             <Link to="/register">Register</Link>
           </div>
-          <div className="cart-nav">
-            <div
+          <div className="cart-nav" aria-expanded={cartItem.show_cart}>
+            <button
               role={"button"}
               tabIndex="0"
               className="cart-icon"
@@ -58,7 +58,7 @@ function Header(props) {
                 alt="Cart Logo"
               />
               <span> {totalItems} items</span>
-            </div>
+            </button>
           </div>
         </div>
       </div>

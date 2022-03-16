@@ -15,19 +15,22 @@ function NavigationBar(props) {
 
   return (
     <div className="navbar-categories">
-      {categories &&
-        categories.map((cate) => (
-          <Link
-            className={`category-bar ${
-              cate.id === categoryList.categoryId ? "activeCategory" : null
-            }`}
-            to={`/product`}
-            key={cate.id}
-            onClick={(e) => category(cate.id, e)}
-          >
-            {cate.name}
-          </Link>
-        ))}
+      <ul aria-label="category navigation">
+        {categories &&
+          categories.map((cate) => (
+            <Link
+              className={`category-bar ${
+                cate.id === categoryList.categoryId ? "activeCategory" : null
+              }`}
+              to={`/product`}
+              key={cate.id}
+              onClick={(e) => category(cate.id, e)}
+            >
+              {cate.name}
+            </Link>
+          ))}
+      </ul>
+
       <select
         className="selector-categories"
         onChange={(event) => category(event.target.value)}
@@ -35,7 +38,10 @@ function NavigationBar(props) {
       >
         {categories &&
           categories.map((cate) => (
-            <option key={cate.id} value={cate.id}> {cate.name} </option>
+            <option key={cate.id} value={cate.id}>
+              {" "}
+              {cate.name}{" "}
+            </option>
           ))}
       </select>
     </div>
