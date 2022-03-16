@@ -46,7 +46,12 @@ function Header(props) {
             <Link to="/register">Register</Link>
           </div>
           <div className="cart-nav">
-            <div className="cart-icon" onClick={showCartProducts}>
+            <div
+              role={"button"}
+              tabIndex="0"
+              className="cart-icon"
+              onClick={showCartProducts}
+            >
               <img
                 className="cart-img"
                 src={`${process.env.PUBLIC_URL}/static/images/cart.svg`}

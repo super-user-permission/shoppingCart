@@ -31,7 +31,7 @@ function Cart(props) {
       <div className="productCart-container">
         <header className="header-container">
           <h2>My cart {`(${cart_items.length} items)`}</h2>
-          <div className="close-btn" onClick={() => closeCart()}>
+          <div role={"button"} className="close-btn" onClick={() => closeCart()}>
             &#10005;
           </div>
         </header>
