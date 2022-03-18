@@ -2,6 +2,7 @@ import React, { lazy, Suspense } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.scss";
 import ErrorBoundary from "./Component/ErrorBoundary/errorBoundary.component";
+import Footer from "./Component/Footer/footer.component";
 import Header from "./Component/Header/header.component";
 import Spinner from "./Component/Spinner/spinner.component";
 import CartContainer from "./Screen/Cart/cart.container";
@@ -27,6 +28,7 @@ function App() {
           </ErrorBoundary>
         </Switch>
         <CartContainer />
+        <Footer />
       </div>
     </Router>
   );
